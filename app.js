@@ -51,7 +51,6 @@ app.get('/search', (req, res) => {
   Restaurant.find()
     .lean()
     .then(restaurant => {
-      console.log(restaurant)
       let restaurants = restaurant.filter(restaurant => restaurant.name.toLowerCase().includes(keyword.toLocaleLowerCase()) || restaurant.category.includes(keyword))
       return res.render('index', { restaurants, keyword })
     })
@@ -66,6 +65,19 @@ app.get('/restaurants/:restaurants_id', (req, res) => {
     .lean()
     .then(restaurant => res.render('show', { restaurant }))
     .catch(error => console.error(error))
+})
+
+//go to restaurant page
+app.get('/restaurant/new', (req, res) => {
+  res.render('new')
+})
+
+//add new restaurant
+app.post('/restaurant', (req, res) => {
+  const restaurant = req.body
+  Restaurant.create({ name: restaurant.name, category: restaurant.category, location: restaurant.location, rating: restaurant.rating, phone: restaurant.phone, description: restaurant.description, google_map: restaurant.google_map, image: restaurant.image, name_en: restaurant.name_en })
+    .then(res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 app.listen(port, (req, res) => {
