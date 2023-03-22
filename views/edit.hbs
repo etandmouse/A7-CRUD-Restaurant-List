@@ -12,60 +12,61 @@
 
   <div class="banner"></div>
 </header>
-<form action="/restaurants" method="POST">
+<form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
   <div>
     <label for="name" class="col-form-label">
       名稱(必填):
     </label>
-    <input placeholder="Sababa 沙巴巴中東美食" name="name" required>
+    <input placeholder="Sababa 沙巴巴中東美食" name="name" value='{{ restaurant.name }}' required>
   </div>
   <div>
     <label for="category" class="col-form-label">
       類別(必填):
     </label>
-    <input placeholder="中東料理" name="category" required>
+    <input placeholder="中東料理" name="category" value='{{ restaurant.category }}' required>
   </div>
   <div>
     <label for="location" class="col-form-label">
       地址(必填):
     </label>
-    <input placeholder="台北市羅斯福路三段 283 巷 17 號" name="location" required>
+    <input placeholder="台北市羅斯福路三段 283 巷 17 號" name="location" value='{{ restaurant.location }}' required>
   </div>
   <div>
     <label for="rating" class="col-form-label">
       推薦分數(必填):
     </label>
-    <input placeholder="4.1" name="rating" required>
+    <input placeholder="4.1" name="rating" value='{{ restaurant.rating }}' required>
   </div>
   <div>
     <label for="phone" class="col-form-label">
       電話:
     </label>
-    <input placeholder="02 2363 8009" name="phone">
+    <input placeholder="02 2363 8009" name="phone" value='{{ restaurant.phone }}'>
   </div>
   <div>
     <label for="description" class="col-form-label">
       敘述:
     </label>
-    <input placeholder="沙巴巴批塔是台灣第一家純手工批塔專賣店..." name="description">
+    <input placeholder="沙巴巴批塔是台灣第一家純手工批塔專賣店..." name="description" value='{{ restaurant.description }}'>
   </div>
   <div>
     <label for="google_map" class="col-form-label">
       google map連結:
     </label>
-    <input placeholder="https://goo.gl/maps/BJdmLuVdDbw" name="google_map">
+    <input placeholder="https://goo.gl/maps/BJdmLuVdDbw" name="google_map" value='{{ restaurant.google_map }}'>
   </div>
   <div>
     <label for="image" class="col-form-label">
       圖片超連結:
     </label>
-    <input placeholder="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg" name="image">
+    <input placeholder="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg" name="image"
+      value='{{ restaurant.image }}'>
   </div>
   <div>
     <label for="name_en" class="col-form-label">
       英文名稱:
     </label>
-    <input placeholder="Sababa Pita Bar" name="name_en">
+    <input placeholder="Sababa Pita Bar" name="name_en" value='{{ restaurant.name_en }}'>
   </div>
   <a href="/">取消</a>
   <button>儲存</button>
