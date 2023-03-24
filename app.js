@@ -57,17 +57,17 @@ app.get('/search', (req, res) => {
     .catch(error => console.error(error))
 })
 
+//go to restaurant page
+app.get('/restaurants/new', (req, res) => {
+  res.render('new')
+})
+
 //get restaurant information
 app.get('/restaurants/:restaurants_id', (req, res) => {
   return Restaurant.findById(req.params.restaurants_id)
     .lean()
-    .then(restaurant => res.render('show', { restaurant }))
+    .then(restaurants => res.render('show', { restaurants }))
     .catch(error => console.error(error))
-})
-
-//go to restaurant page
-app.get('/restaurant/new', (req, res) => {
-  res.render('new')
 })
 
 //add new restaurant
