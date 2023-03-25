@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
     image: restaurant.image,
     name_en: restaurant.name_en
   })
-    .then(res.redirect('/'))
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
@@ -47,15 +47,15 @@ router.put('/:restaurant_id', (req, res) => {
   const restaurant_id = req.params.restaurant_id
   return Restaurant.findById(restaurant_id)
     .then(restaurants => {
-      restaurants.name = restaurant.name,
-        restaurants.category = restaurant.category,
-        restaurants.location = restaurant.location,
-        restaurants.rating = restaurant.rating,
-        restaurants.phone = restaurant.phone,
-        restaurants.description = restaurant.description,
-        restaurants.google_map = restaurant.google_map,
-        restaurants.image = restaurant.image,
-        restaurants.name_en = restaurant.name_en
+      restaurants.name = restaurant.name
+      restaurants.category = restaurant.category
+      restaurants.location = restaurant.location
+      restaurants.rating = restaurant.rating
+      restaurants.phone = restaurant.phone
+      restaurants.description = restaurant.description
+      restaurants.google_map = restaurant.google_map
+      restaurants.image = restaurant.image
+      restaurants.name_en = restaurant.name_en
       return restaurants.save()
     })
     .then(() => res.redirect(`/restaurants/${restaurant_id}`))
