@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 const Restaurant = require('./models/restaurants')
-const { Schema } = require('mongoose')
 
 const port = 3000
 
