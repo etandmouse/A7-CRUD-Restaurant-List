@@ -3,7 +3,8 @@ const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const methodOverride = require('method-Override')
+const methodOverride = require('method-override')
+const session = require('express-session')
 
 // 引用路由器
 const routes = require('./routes')
@@ -12,6 +13,12 @@ const port = 3000
 
 app.engine('hbs', exphbs({ default: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}))
 
 //static files
 app.use(express.static('public'))
