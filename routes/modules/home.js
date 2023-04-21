@@ -5,7 +5,8 @@ const Restaurant = require('../../models/restaurants')
 
 //get frontpage
 router.get('/', (req, res) => {
-  Restaurant.find()
+  const userId = req.user._id
+  Restaurant.find({ userId })
     .lean()
     .then(restaurants => { res.render('index', { restaurants }) })
     .catch(error => console.error(error))
@@ -18,8 +19,9 @@ router.get('/search', (req, res) => {
   const sortBy = sort.split("-")
   const type = sortBy[0]
   const order = sortBy[1]
+  const userId = req.user._id
 
-  Restaurant.find()
+  Restaurant.find({ userId })
     .lean()
     .sort({ [type]: order })
     .then(restaurant => {
