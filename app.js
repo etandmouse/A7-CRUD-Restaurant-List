@@ -12,7 +12,7 @@ const routes = require('./routes')
 
 const usePassport = require('./config/passport')
 require('./config/mongoose')
-const port = 3000
+const PORT = process.env.PORT
 
 app.engine('hbs', exphbs({ default: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
@@ -44,6 +44,6 @@ app.use((req, res, next) => {
 //use routes
 app.use(routes)
 
-app.listen(port, (req, res) => {
-  console.log(`App is running in http://localhost:${port}`)
+app.listen(PORT, (req, res) => {
+  console.log(`App is running in http://localhost:${PORT}`)
 })
