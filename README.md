@@ -1,12 +1,15 @@
 # 我的餐廳清單
 
 ## 介紹
-記錄自己的餐廳清單，可以編輯、新增、刪除、查看詳細資訊
+透過註冊帳號並記錄自己的餐廳清單，可以編輯、新增、刪除、查看詳細資訊
 
+![screenshot](public/images/projectscreenshot-login.png)
 ![screenshot](public/images/projectscreenshot.png)
 
 ### 功能
-1. 瀏覽所有餐廳
+1. 需註冊帳號並登入才能使用
+2. 支援 Facebook 登入
+1. 瀏覽使用者紀錄的餐廳
 2. 瀏覽餐廳詳細資訊
 3. 新增餐廳
 4. 搜尋餐廳
@@ -27,12 +30,12 @@
 npm install
 ```
 
-3. 設定環境變數，新建一個 .env 檔案，使用你的 MongoDB ，設定 MONGODB_URL 環境變數
+3. 設定環境變數，項目請參考.env.example，新建一個 .env 檔案，使用你的 MongoDB ，設定 MONGODB_URL 環境變數
 ```
 MONGODB_URL=mongodb+srv://<username>:<password>@<cluster>.pk4dwnp.mongodb.net/?retryWrites=true&w=majority
 ```
 
-4. 製作預設的八間餐廳資料
+4. 製作預設的兩個使用者的餐廳資料
 ```
 npm run seed
 ```
